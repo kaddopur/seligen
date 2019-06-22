@@ -5,6 +5,7 @@
   "author": "Avi Aryan <avi.aryan123@gmail.com>",
   "dependencies": {
     "bulma": "^0.7.1",
+    "formik": "^1.5.7",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
