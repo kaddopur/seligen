@@ -1,6 +1,8 @@
 import React from 'react';
 import { Form, Select } from 'antd';
 
+const { Option } = Select;
+
 const PriceField = () => {
   return (
     <Form.Item label="Location">
