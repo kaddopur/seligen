@@ -4,6 +4,7 @@ import { Form } from 'antd';
 import LensField from './fields/LensField';
 import PriceField from './fields/PriceField';
 import ActionField from './fields/ActionField';
+import LocationField from './fields/LocationField';
 
 const CameraForm = props => {
   const { form } = props;
@@ -22,6 +23,7 @@ const CameraForm = props => {
   return (
     <Form {...formItemLayout}>
       <ActionField form={form} />
+      <LocationField form={form} />
       <LensField form={form} />
       <PriceField form={form} />
     </Form>
