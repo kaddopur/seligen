@@ -36,27 +36,27 @@ const CameraForm = props => {
 
       <Form.Item label="Box">
         <div>
-          <Radio.Group>
-            <Radio.Button value="sell">公司貨</Radio.Button>
-            <Radio.Button value="buy">水貨</Radio.Button>
+          <Radio.Group defaultValue="1">
+            <Radio.Button value="1">公司貨</Radio.Button>
+            <Radio.Button value="2">水貨</Radio.Button>
           </Radio.Group>
         </div>
         <div style={{ marginTop: 16 }}>
-          <Radio.Group>
-            <Radio.Button value="sell">過保</Radio.Button>
-            <Radio.Button value="buy">未過保</Radio.Button>
+          <Radio.Group defaultValue="1">
+            <Radio.Button value="1">保內</Radio.Button>
+            <Radio.Button value="2">過保</Radio.Button>
           </Radio.Group>
         </div>
         <div style={{ marginTop: 16 }}>
-          <Radio.Group>
-            <Radio.Button value="sell">有盒</Radio.Button>
-            <Radio.Button value="buy">無盒</Radio.Button>
+          <Radio.Group defaultValue="1">
+            <Radio.Button value="1">有盒</Radio.Button>
+            <Radio.Button value="2">無盒</Radio.Button>
           </Radio.Group>
         </div>
         <div style={{ marginTop: 16 }}>
-          <Radio.Group>
-            <Radio.Button value="sell">有單</Radio.Button>
-            <Radio.Button value="buy">無單</Radio.Button>
+          <Radio.Group defaultValue="1">
+            <Radio.Button value="1">有單</Radio.Button>
+            <Radio.Button value="2">無單</Radio.Button>
           </Radio.Group>
         </div>
       </Form.Item>

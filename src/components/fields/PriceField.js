@@ -5,7 +5,7 @@ const PriceField = () => {
   return (
     <Form.Item label="Price">
       <InputNumber
-        style={{ width: 200 }}
+        style={{ width: '100%' }}
         min={0}
         formatter={value => `NT$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
         parser={value => value.replace(/NT\$\s?|(,*)/g, '')}
