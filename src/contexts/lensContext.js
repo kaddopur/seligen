@@ -1,20 +1,51 @@
-import React, { useState, useContext, useMemo, createContext, useEffect } from 'react';
-import useLocalStorage from '../hooks/useLocalStorage';
+import React, { useContext, useMemo, createContext, useReducer } from 'react';
 
 const LensStateContext = createContext();
+const LensDispatchContext = createContext();
 
-function LensProvider(props) {
-  const [price, setPrice] = useLocalStorage('price', 0);
-  const value = useMemo(() => [price, setPrice], [price]);
-  return <LensStateContext.Provider value={value} {...props} />;
+// constants
+const UPDATE_PRICE = 'UPDATE_PRICE';
+
+function lensReducer(state, action) {
+  switch (action.type) {
+    case UPDATE_PRICE: {
+      return { ...state, price: action.payload.price };
+    }
+    default: {
+      console.warn(`Unhandled action type: ${action.type}`);
+      return state;
+    }
+  }
 }
 
-function useLens() {
+function LensProvider({ children }) {
+  const [state, dispatch] = useReducer(lensReducer, { price: 0 });
+  return (
+    <LensStateContext.Provider value={state}>
+      <LensDispatchContext.Provider value={dispatch}>{children}</LensDispatchContext.Provider>
+    </LensStateContext.Provider>
+  );
+}
+
+function useLensState() {
   const context = useContext(LensStateContext);
   if (context === undefined) {
-    throw new Error('useLens must be used within a LensProvider');
+    throw new Error('useLensState must be used within a LensProvider');
   }
   return context;
 }
 
-export { LensProvider, useLens };
+function useLensDispatch() {
+  const context = useContext(LensDispatchContext);
+  if (context === undefined) {
+    throw new Error('LensDispatchContext must be used within a LensProvider');
+  }
+  return context;
+}
+
+// updaters
+function updatePrice(dispatch, price) {
+  dispatch({ type: UPDATE_PRICE, payload: { price } });
+}
+
+export { LensProvider, useLensState, useLensDispatch, updatePrice };

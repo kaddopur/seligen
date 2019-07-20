@@ -23,12 +23,11 @@ const IndexPage = () => {
         </Breadcrumb>
         <LensProvider>
           <Row>
-            <Col span={12}>
+            <Col span={24}>
               <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
                 <CameraForm />
               </div>
             </Col>
-            <Col span={12}>col-12</Col>
           </Row>
         </LensProvider>
       </Content>
