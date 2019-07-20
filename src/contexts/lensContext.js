@@ -4,13 +4,26 @@ const LensStateContext = createContext();
 const LensDispatchContext = createContext();
 
 // constants
+const UPDATE_ACTION = 'UPDATE_ACTION';
 const UPDATE_PRICE = 'UPDATE_PRICE';
 
+// initial state
+const initialState = {
+  action: 'sell',
+  price: 0
+};
+
 function lensReducer(state, action) {
+  console.log('#####: lensReducer -> state', state);
+  console.log('#####: lensReducer -> action', action);
   switch (action.type) {
+    case UPDATE_ACTION: {
+      return { ...state, action: action.payload.action };
+    }
     case UPDATE_PRICE: {
       return { ...state, price: action.payload.price };
     }
+
     default: {
       console.warn(`Unhandled action type: ${action.type}`);
       return state;
@@ -19,7 +32,7 @@ function lensReducer(state, action) {
 }
 
 function LensProvider({ children }) {
-  const [state, dispatch] = useReducer(lensReducer, { price: 0 });
+  const [state, dispatch] = useReducer(lensReducer, initialState);
   return (
     <LensStateContext.Provider value={state}>
       <LensDispatchContext.Provider value={dispatch}>{children}</LensDispatchContext.Provider>
@@ -44,8 +57,12 @@ function useLensDispatch() {
 }
 
 // updaters
+function updateAction(dispatch, action) {
+  dispatch({ type: UPDATE_ACTION, payload: { action } });
+}
+
 function updatePrice(dispatch, price) {
   dispatch({ type: UPDATE_PRICE, payload: { price } });
 }
 
-export { LensProvider, useLensState, useLensDispatch, updatePrice };
+export { LensProvider, useLensState, useLensDispatch, updateAction, updatePrice };
