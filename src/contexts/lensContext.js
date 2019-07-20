@@ -10,7 +10,16 @@ const UPDATE_PRICE = 'UPDATE_PRICE';
 // initial state
 const initialState = {
   action: 'sell',
-  price: 0
+  price: 0,
+  location: '',
+  name: '',
+  model: '',
+  buyDate: '2015-03',
+  fromDealer: true,
+  underWarranty: true,
+  fullPackaged: true,
+  hasReceipt: true,
+  note: ''
 };
 
 function lensReducer(state, action) {
