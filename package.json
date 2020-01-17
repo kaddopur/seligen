@@ -5,6 +5,7 @@
   "author": "Avi Aryan <avi.aryan123@gmail.com>",
   "dependencies": {
     "antd": "^3.20.5",
+    "clipboard": "^2.0.4",
     "gatsby": "^1.9.247",
     "gatsby-link": "^1.6.40",
     "gatsby-plugin-react-helmet": "^2.0.10",
