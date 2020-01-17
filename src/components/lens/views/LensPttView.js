@@ -12,6 +12,32 @@ const PttView = styled.article`
 
 const PttHeader = styled.header`
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  &:hover .overlay {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.9);
+    opacity: 1;
+  }
+
+  &:active .overlay {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+`;
+
+const PttHeaderOverlay = styled.div`
+  transition: all 0.1s ease, opacity 0s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  user-select: none;
+  opacity: 0;
 `;
 
 const PttHeaderItem = styled.div`
@@ -72,12 +98,11 @@ class LensPttView extends React.Component {
   }
 
   render() {
+    const title = '[售/全國] Sigma 17-50mm F2.8 For Sony A環';
+
     return (
       <PttView>
-        <PttHeader
-          className="ptt-header"
-          data-clipboard-text="Just because you can doesn't mean you should — clipboard.js"
-        >
+        <PttHeader className="ptt-header" data-clipboard-text={title}>
           <PttHeaderItem>
             <PttHeaderItemTag>作者</PttHeaderItemTag>
             <PttHeaderItemValue>Seligen (買賣文章產生器)</PttHeaderItemValue>
@@ -85,13 +110,15 @@ class LensPttView extends React.Component {
 
           <PttHeaderItem>
             <PttHeaderItemTag>標題</PttHeaderItemTag>
-            <PttHeaderItemValue>[售/全國] Sigma 17-50mm F2.8 For Sony A環</PttHeaderItemValue>
+            <PttHeaderItemValue>{title}</PttHeaderItemValue>
           </PttHeaderItem>
 
           <PttHeaderItem>
             <PttHeaderItemTag>時間</PttHeaderItemTag>
             <PttHeaderItemValue>{getDisplayTime(new Date())}</PttHeaderItemValue>
           </PttHeaderItem>
+
+          <PttHeaderOverlay className="overlay">Click to Copy</PttHeaderOverlay>
         </PttHeader>
 
         <PttContent>
