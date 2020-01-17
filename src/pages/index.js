@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Layout, Menu, Breadcrumb, Row, Col } from 'antd';
-import CameraForm from '../components/CameraForm';
+import LensForm from '../components/lens/LensForm';
+import LensPttView from '../components/lens/views/LensPttView';
 
 import { LensProvider } from '../contexts/lensContext';
 
@@ -23,10 +24,13 @@ const IndexPage = () => {
         </Breadcrumb>
         <LensProvider>
           <Row>
-            <Col span={24}>
+            <Col span={12}>
               <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>
-                <CameraForm />
+                <LensForm />
               </div>
+            </Col>
+            <Col span={12}>
+              <LensPttView />
             </Col>
           </Row>
         </LensProvider>

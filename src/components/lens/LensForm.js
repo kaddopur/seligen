@@ -4,10 +4,10 @@ import locale from 'antd/lib/date-picker/locale/zh_TW';
 
 const { MonthPicker } = DatePicker;
 
-import LensField from './fields/LensField';
-import PriceField from './fields/PriceField';
-import ActionField from './fields/ActionField';
-import LocationField from './fields/LocationField';
+import LensField from '../fields/LensField';
+import PriceField from '../fields/PriceField';
+import ActionField from '../fields/ActionField';
+import LocationField from '../fields/LocationField';
 
 const CameraForm = props => {
   const { form } = props;
