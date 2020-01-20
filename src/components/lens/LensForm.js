@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Radio, DatePicker } from 'antd';
+import { Form, Radio, DatePicker, Select } from 'antd';
 import locale from 'antd/lib/date-picker/locale/zh_TW';
 import styled from 'styled-components';
 
@@ -9,6 +9,7 @@ import LensField from '../fields/LensField';
 import PriceField from '../fields/PriceField';
 import ActionField from '../fields/ActionField';
 import LocationField from '../fields/LocationField';
+import MountField from '../fields/MountField';
 
 const StyledForm = styled(Form)`
   background-color: white;
@@ -35,6 +36,7 @@ const CameraForm = props => {
       <ActionField form={form} />
       <LocationField form={form} />
       <LensField form={form} />
+      <MountField form={form} />
       <PriceField form={form} />
 
       <Form.Item label="Date">
