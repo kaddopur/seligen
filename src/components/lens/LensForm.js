@@ -1,13 +1,20 @@
 import React from 'react';
 import { Form, Radio, DatePicker } from 'antd';
 import locale from 'antd/lib/date-picker/locale/zh_TW';
+import styled from 'styled-components';
 
 const { MonthPicker } = DatePicker;
 
-import LensField from './fields/LensField';
-import PriceField from './fields/PriceField';
-import ActionField from './fields/ActionField';
-import LocationField from './fields/LocationField';
+import LensField from '../fields/LensField';
+import PriceField from '../fields/PriceField';
+import ActionField from '../fields/ActionField';
+import LocationField from '../fields/LocationField';
+
+const StyledForm = styled(Form)`
+  background-color: white;
+  padding: 24px;
+  min-height: 280px;
+`;
 
 const CameraForm = props => {
   const { form } = props;
@@ -24,7 +31,7 @@ const CameraForm = props => {
   };
 
   return (
-    <Form {...formItemLayout}>
+    <StyledForm {...formItemLayout}>
       <ActionField form={form} />
       <LocationField form={form} />
       <LensField form={form} />
@@ -60,7 +67,7 @@ const CameraForm = props => {
           </Radio.Group>
         </div>
       </Form.Item>
-    </Form>
+    </StyledForm>
   );
 };
 
